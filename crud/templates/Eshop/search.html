@@ -1,0 +1,19 @@
+{% extends 'Eshop/base.html' %}
+
+{%block title%} Search page {%endblock%}
+
+{%block content%}
+  {% for el in val %}
+            <form action="{% url 'add_card' el.category el.pk %}" method="post">
+                {% csrf_token %}
+                <br><img src="{{ el.image.url}}" alt="Car" width="300" height="300">
+                <h1><a href="{% url 'detail' el.pk %}">{{el.name}} {{el.color}} </a>({{el.date}})</h1>
+                <label for="imputname">Son kiriting</label>
+                <input type="number" value="value" name="inputname" value="1"/>
+                <input type="submit" value="savatga qo'shish"  />
+            </form>
+
+    {%endfor%}
+
+
+{%endblock%}

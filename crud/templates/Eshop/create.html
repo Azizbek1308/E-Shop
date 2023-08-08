@@ -1,0 +1,12 @@
+{% extends 'Eshop/base.html' %}
+
+{%block title%} Create page {%endblock%}
+
+{%block content%}
+<form action="" method="post" enctype="multipart/form-data">{%csrf_token%}
+{{form.as_p}}
+  <h3>Do you want to save?</h3>
+  <input type="submit" value="Save">
+</form>
+
+{%endblock%}

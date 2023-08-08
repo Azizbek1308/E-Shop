@@ -1,0 +1,37 @@
+{% extends 'Eshop/base.html' %}
+
+{% block title%} Savat {% endblock %}
+
+
+{% block content%}
+
+
+<table class="table-info" style="width:100%; border: 1px solid black; border-collapse: collapse;">
+    <tr>
+
+      <th scope="col" style="width:30%; border: 1px solid black; border-collapse: collapse;">Product name</th>
+      <th scope="col" style="width:30%; border: 1px solid black; border-collapse: collapse;">Product price</th>
+      <th scope="col" style="width:30%; border: 1px solid black; border-collapse: collapse;">amount of Product</th>
+      <th scope="col" style="width:30%; border: 1px solid black; border-collapse: collapse;">Delete</th>
+      </tr>
+    {%for el in valss%}
+    <form action="" method="post">
+        {%csrf_token%}
+        <tr>
+
+            <td style="width:30%; border: 1px solid black; border-collapse: collapse;">{{el.name.name}} </td>
+            <td style="width:30%; border: 1px solid black; border-collapse: collapse;"> {{el.price}}$</td>
+            <td style="width:30%; border: 1px solid black; border-collapse: collapse;">{{el.count}} ta</td>
+            <td style="width:30%; border: 1px solid black; border-collapse: collapse;"><a href="{% url 'itemdelete' el.pk %}">delete</a></td>
+
+          </tr>
+    </form>
+
+    {% endfor%}
+  </table>
+
+
+<a href="#">PAY</a>
+
+
+{% endblock %}

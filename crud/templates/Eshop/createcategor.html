@@ -1,0 +1,14 @@
+{% extends 'Eshop/base.html' %}
+
+{%block title%} Create category page {%endblock%}
+
+{%block content%}
+   {% for el in obj %}
+     <h1>{{el.name}}</h1>
+   {%endfor%}
+<form action="" method="post" >{%csrf_token%}
+{{form.as_p}}
+  <h3>Do you want to save?</h3>
+  <input type="submit" value="Save">
+</form>
+{%endblock%}
